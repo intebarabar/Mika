@@ -9,6 +9,6 @@ source/info.php
 .idea
 .vagrant
 ansible/*.retry
-extras
+#extras
 *.log
 source/tmp/*
