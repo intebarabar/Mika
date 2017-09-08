@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Evolution_Custom>
+            <version>0.0.1</version>
+        </Evolution_Custom>
+    </modules>
+    <global>
+        <blocks>
+            <evolution_custom>
+                <class>Evolution_Custom_Block</class>
+            </evolution_custom>
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_grid>Evolution_Custom_Block_Adminhtml_Catalog_Product_Grid</catalog_product_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <evolution_custom>
+                <class>Evolution_Custom_Helper</class>
+            </evolution_custom>
+        </helpers>
+    </global>
+    <stores>
+        <admin>
+            <design>
+                <package>
+                    <name>default</name>
+                </package>
+                <theme>
+                    <default>mango_child</default>
+                </theme>
+            </design>
+        </admin>
+    </stores>
+</config>

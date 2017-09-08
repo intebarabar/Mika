@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <PG_CustomColumn>
+            <version>0.1.0</version>
+        </PG_CustomColumn>
+    </modules>
+    <global>
+        <blocks>
+            <customcolumn>
+                <class>PG_CustomColumn_Block</class>
+            </customcolumn>
+        </blocks>
+        <helpers>
+            <customcolumn>
+                <class>PG_CustomColumn_Helper</class>
+            </customcolumn>
+        </helpers>
+        <page>
+            <layouts>
+                <three_column_cust module="page" translate="label">
+                    <label>3columns(Custom)</label>
+                    <template>page/3columnscustom.phtml</template>
+                    <layout_handle>page_three_column_cust</layout_handle>
+                </three_column_cust>
+            </layouts>
+        </page>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <pg_customcolumn module="customcolumn">
+                    <file>customcolumn.xml</file>
+                </pg_customcolumn>
+            </updates>
+        </layout>
+    </frontend>
+</config> 

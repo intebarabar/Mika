@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Bar_Klobserver>
+      <version>0.1.0</version>
+    </Bar_Klobserver>
+  </modules>
+  <global>
+    <helpers>
+      <klobserver>
+        <class>Bar_Klobserver_Helper</class>
+      </klobserver>
+    </helpers>
+	<models>
+	  <klobserver>
+		<class>Bar_Klobserver_Model</class>
+		<resourceModel>klobserver_mysql4</resourceModel>
+	  </klobserver>
+	</models>
+    <events>
+	  <checkout_onepage_controller_success_action> <!-- identifier of the event we want to catch -->
+        <observers>
+          <checkout_onepage_controller_success_action_handler> <!-- identifier of the event handler -->
+            <type>singleton</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>klobserver/observer</class> <!-- observers class alias -->
+            <method>customOrderAdd</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_onepage_controller_success_action_handler>
+        </observers>
+      </checkout_onepage_controller_success_action>
+    </events>
+  </global>
+</config> 

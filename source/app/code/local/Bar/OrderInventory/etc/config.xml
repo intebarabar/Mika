@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bar_OrderInventory>
+            <version>0.1.0</version>
+        </Bar_OrderInventory>
+    </modules>
+
+    <global>
+        <helpers>
+            <orderinventory>
+                <class>Bar_OrderInventory_Helper</class>
+            </orderinventory>
+        </helpers>
+
+        <blocks>
+            <orderinventory>
+                <class>Bar_OrderInventory_Block</class>
+            </orderinventory>
+
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Bar_OrderInventory_Block_Adminhtml_Order_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+
+    </global>
+</config>

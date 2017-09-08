@@ -1,0 +1,48 @@
+<div id="cust-main-categories-count">
+	<div class="row">
+		<div class="col-md-4 col-xs-6">
+			<a href="http://magento.icington.com/index.php/catalog/category/view/s/bar/id/10/">
+				<img src="<?php echo $this->getSkinUrl('images/1.png') ?>" alt="" />
+			
+				<div class="cust-cat-detail">
+					<?php
+						$products_count = Mage::getModel('catalog/category')->load(10)->getProductCount();
+						
+						echo "<h3>Bar</h3>";
+						echo "<p>" . $products_count . " Produkter</p>";
+					?>
+				</div>
+			</a>
+		</div>
+		
+		<div class="col-md-4 col-xs-6">
+			<a href="http://magento.icington.com/index.php/catalog/category/view/s/matsal/id/147/">
+				<img src="<?php echo $this->getSkinUrl('images/2.png') ?>" alt="" />
+			
+				<div class="cust-cat-detail">
+					<?php
+						$products_count = Mage::getModel('catalog/category')->load(147)->getProductCount();
+						
+						echo "<h3>Matsal</h3>";
+						echo "<p>" . $products_count . " Produkter</p>";
+					?>
+				</div>
+			</a>
+		</div>
+		
+		<div class="col-md-4 col-xs-6">
+			<a href="http://magento.icington.com/index.php/catalog/category/view/s/kok/id/148/">
+				<img src="<?php echo $this->getSkinUrl('images/3.png') ?>" alt="" />
+			
+				<div class="cust-cat-detail">
+					<?php
+						$products_count = Mage::getModel('catalog/category')->load(148)->getProductCount();
+						
+						echo "<h3>Kök</h3>";
+						echo "<p>" . $products_count . " Produkter</p>";
+					?>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,82 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * 2016-04-29 15:46:40 */
+
+body.boxed{
+    background-color:#fafafa;
+    background-image:none;
+}
+#newsletter_popup h2{letter-spacing: -0.9px}#newsletter_popup p{letter-spacing: 0.4px}#newsletter_popup button.button{letter-spacing: 2px;}#newsletter_popup{
+width:830px;height:400px;}
+body.boxed .page {
+                margin: 32px auto;
+                margin: 0;
+                width: 100%;
+            }
+            .header-container.type8 .header {
+                border-bottom: 1px solid #ebebeb;
+            }
+            .header-container.type8 .logo {
+                margin: 30px 0 20px;
+            }
+
+#cust-cookies-bar p {
+   text-align: center;
+   background: #000;
+   color: #fff;
+   padding: 5px;
+   margin-bottom: 0;
+}
+
+#cust-cookies-bar-btn {
+   background: #007700;
+   color: #ffffff;
+   border-radius: 3px;
+   text-decoration: none;
+   padding: 3px;
+}
+
+#cust-cookies-bar-btn:hover {
+   background: #009900;
+}
+
+#cust-top-extra-menu {
+   background: #333333;
+   padding: 0 100px;
+   text-align: right;
+}
+
+#cust-top-extra-menu li {
+   display: inline-block;
+   padding: 10px 0;
+}
+
+#cust-top-extra-menu li a {
+   color: #fff;
+   font-size: 1em;
+   padding: 0 10px;
+   border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+#cust-top-extra-menu #cust-klarna-menu a,
+.footer-menu #cust-klarna-menu a {
+   background: url(http://magento.icington.com/skin/frontend/smartwave/mango/images/logo-klarna.png) no-repeat center 2px;
+   background-size: contain;
+   border-right: none;
+   color: transparent;
+}
+
+.header-container.type8 {
+   background-color: #000000 !important;
+}
+
+            @media (min-width: 768px) {
+            .header-container.type8 .logo {
+                margin: 40px 0 30px;
+            }
+            }
+            @media (min-width: 992px) {
+            .header-container.type8 .logo {
+                margin: 70px 0 60px;
+            }
+            }

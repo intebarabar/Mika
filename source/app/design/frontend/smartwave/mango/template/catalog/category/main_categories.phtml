@@ -1,0 +1,87 @@
+<?php
+$storeId = Mage::app()->getStore()->getId();
+//Get category model
+$_category = Mage::getModel('catalog/category')->setStoreId($storeId);
+$_cat = $this->getLeftBarCategory($_category);
+$children = Mage::getModel('catalog/category')->getCollection()->setStoreId($storeId);
+$current_category = Mage::registry('current_category')->getName();
+?>
+<?php
+    function getChildrenCategoriesHtmlContent($_category, $current_category){
+        $children = explode( ",", $_category->getChildren() );
+        $content = '';
+        $content .= '<li class="';
+        if(!$children[0]) {
+            $content .= 'has-no-children';
+        }
+        elseif ($_category->getName() == $current_category ){
+            $content .= 'current-category opened';
+        }
+        else
+            $content .= 'has-children';
+        $content .= '">';
+        $content .= '<a href="'.$_category->getUrl().'" ';
+        $content .= '>'.$_category->getName().'</a>';
+        if($children[0] ){
+            $content .= '<a href="javascript:void(0)" class="plus"><i class="';
+            if ($_category->getName() == $current_category ) {
+                $content .= 'icon-mango-angle-up "></i ></a >';
+                $content .= '<ul style="display: block;">';
+                }
+                else {
+                    $content .= 'icon-mango-angle-down "></i></a>';
+                    $content .= '<ul>';
+                }
+            $cat_ch = array();
+            foreach($children as $key => $child){
+                $_subcat = Mage::getModel( 'catalog/category' )->load( $child );
+
+                $cat_ch[$_subcat->getName()] = $_subcat;
+            }
+            ksort($cat_ch);
+
+            foreach($cat_ch as $child){
+//                $_subcat = Mage::getModel( 'catalog/category' )->load( $child );
+                $content .= getChildrenCategoriesHtmlContent($child);
+            }
+
+            $content .= '</ul>';
+        }
+        $content .= '</li>';
+        return $content;
+    }
+?>
+<div class="block block-category-nav">
+    <div class="block-title">
+        <strong><span><?php echo $this->__("Main Categories") ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ul class="category-list">
+            <?php
+                $children->addAttributeToSelect(array('name','parent_id', 'is_active', 'position'))
+                    ->addAttributeToFilter('parent_id', $_cat->getId())
+                    ->addAttributeToFilter('is_active', 1)
+                    ->addAttributeToSort('position')->getItems();
+                foreach($children->getLoadedIds() as $child){
+                    $_category = Mage::getModel( 'catalog/category' )->load( $child );
+                    echo getChildrenCategoriesHtmlContent($_category, $current_category );
+                }
+            ?>
+        </ul>
+    </div>
+<script type="text/javascript">
+    jQuery(function($){
+        $(".block.block-category-nav .category-list a.plus").click(function(){
+            if($(this).parent().hasClass("opened")){
+                $(this).parent().children("ul").slideUp();
+                $(this).parent().removeClass("opened");
+                $(this).children("i.icon-mango-angle-up").removeClass("icon-mango-angle-up").addClass("icon-mango-angle-down");
+            } else {
+                $(this).parent().children("ul").slideDown();
+                $(this).parent().addClass("opened");
+                $(this).children("i.icon-mango-angle-down").removeClass("icon-mango-angle-down").addClass("icon-mango-angle-up");
+            }
+        });
+    });
+</script>
+</div>

@@ -1,0 +1,13 @@
+[frontend]
+bargrossisten.greenstreet.com.ua  ansible_user=bargrossisten   ansible_port=22
+
+[database]
+bargrossisten.greenstreet.com.ua  ansible_user=bargrossisten   ansible_port=22
+
+[backend]
+bargrossisten.greenstreet.com.ua  ansible_user=bargrossisten   ansible_port=22
+
+[staging:children]
+database
+frontend
+backend

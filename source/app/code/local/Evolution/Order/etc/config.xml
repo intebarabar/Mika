@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Evolution_Order>
+            <version>0.1.0</version>
+        </Evolution_Order>
+    </modules>
+    <global>
+        <models>
+            <evolution_order>
+                <class>Evolution_Order_Model</class>
+                <resourceModel>evolution_order_resource</resourceModel>
+            </evolution_order>
+            <evolution_order_resource>
+                <class>Evolution_Order_Model_Resource</class>
+            </evolution_order_resource>
+        </models>
+        <resources>
+            <evolution_order_setup>
+                <setup>
+                    <module>Evolution_Order</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </evolution_order_setup>
+        </resources>
+        <helpers>
+            <evolution_order>
+                <class>Evolution_Order_Helper</class>
+            </evolution_order>
+        </helpers>
+        <sales>
+            <order>
+                <states>
+                    <new translate="label">
+                        <label>Order Unprocessed</label>
+                        <statuses>
+                            <unprocessed default="1"/>
+                        </statuses>
+                        <visible_on_front>1</visible_on_front>
+                    </new>
+                </states>
+            </order>
+        </sales>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <evolution_order before="-">Evolution_Order_Adminhtml</evolution_order>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <evolution_order>
+                        <type>model</type>
+                        <class>evolution_order/observer</class>
+                        <method>adminhtmlBlockHtmlBefore</method>
+                    </evolution_order>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
+    </adminhtml>
+</config>

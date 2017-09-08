@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="left">
+            <remove name="tags_popular"/>
+        </reference>
+        <reference name="root">
+            <block type="customcolumn/customcolumn" name="custom_categories_bar" as="custom_categories_bar"
+                   template="pg/categoriesbar.phtml"/>
+        </reference>
+        <reference name="right">
+            <remove name="catalog.compare.sidebar"/>
+            <remove name="klarna_promotion_logo"/>
+            <remove name="right.reports.product.viewed"/>
+        </reference>
+    </default>
+</layout>

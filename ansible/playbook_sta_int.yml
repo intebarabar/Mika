@@ -1,0 +1,4 @@
+---
+- include: database.yml
+- include: frontend.yml
+- include: app.yml

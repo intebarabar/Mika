@@ -1,0 +1,621 @@
+/* Vaimo_Klarna_Klarnacheckout */
+
+/* ===========================================================
+*  Misc
+* =========================================================== */
+
+.klarna_wrapper {
+    position: relative;
+    margin: 10px 0 10px 0;
+    font-size: 0; /* Removing this seems to mess up the klarna_default layout */
+}
+
+.klarna_loader {
+    display: none;
+    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, .7);
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.klarna_loader img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    margin: -8px 0 0 -8px;
+}
+
+.klarna-default {
+    margin-bottom: 10px;
+}
+
+.klarna_left,
+.klarna_right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.klarna_left {
+
+}
+
+.klarna_checkout {
+    min-height: 944px;
+}
+
+.klarna_cart,
+.klarna_totals,
+.klarna_shipping,
+.klarna_discount {
+    font-size: 11px;
+}
+
+/* ===========================================================
+*  Loaders and alerts
+* =========================================================== */
+.klarna_loader {
+    display: none;
+    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, .7);
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.klarna_loader img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    margin: -8px 0 0 -8px;
+}
+
+.klarna_msg {
+    display: none;
+    position: relative;
+    border-radius: 3px;
+    padding: 0 15px;
+    margin: 1em auto;
+    height: 40px;
+    line-height: 40px;
+    background: #44C92C; /*#dff0d8;*/
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    font-weight: normal;
+}
+
+.klarna_msg.error {
+    color: white;
+    background: #DA3532;
+}
+
+.klarna_msg-content {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.klarna_msg .icon {
+    color: #44C92C;
+    background: white;
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    padding-top: 6px;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.klarna_msg .icon:before {
+    content: "\f00c";
+}
+
+.klarna_msg.error .icon {
+    color: #DA3532;
+}
+
+.klarna_msg.error .icon:before {
+    content: "\f12a";
+}
+
+#klarna_reload {
+    display: none;
+}
+
+
+/* ===========================================================
+*  General
+* =========================================================== */
+#klarna-checkout-newsletter-container,
+.klarna_discount {
+    margin-bottom: 20px;git sg
+}
+.coupon{
+  width: 500px;
+  padding: 0;
+}
+.shipping-block{
+  width: 100%;
+  float: left;
+}
+input.checkbox-newsletter{
+  float:left;
+  margin-top: 3px;
+}
+label.label-newsletter, .shipping-block ul li label{
+  padding-left: 25px;
+  margin-top: 15px;
+}
+.shipping-block ul li label, label.label-newsletter{
+  background-position: 3% 50%;
+  background-repeat: no-repeat;
+}
+.shipping-block ul li label{
+  background-image: url(../../../images/radio.png);
+}
+.shipping-block ul li input:checked + label{
+  background-image: url(../../../images/radio-active.png);
+}
+label.label-newsletter{
+  background-image: url(../../../images/checkbox.png);
+}
+label.label-newsletter.active{
+  background-image: url(../../../images/checkbox-active.png);
+}
+input#news-checkox, input#s_method_flatrate_flatrate{
+  display: none;
+}
+h3.klarna_block-title.page-title.title-checkout.col-xs-2{
+  width: 40%;
+  text-align: center;
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+.col-xs-6 .line-checkout {
+  width: 30% !important;
+}
+input#coupon_code::-webkit-input-placeholder {padding-left: 0px; font-size: 14px;}
+input#coupon_code:-moz-input-placeholder {padding-left: 0px; font-size: 14px;}
+input#coupon_code::-moz-input-placeholder {padding-left: 0px; font-size: 14px;}
+input#coupon_code::-ms-input-placeholder {padding-left: 0px; font-size: 14px;}
+
+a.button::-moz-focus-inner {
+    padding:0;
+    border:0;
+}
+/*
+a.button {
+    -webkit-border-fit:lines;
+}*/
+
+a.button,
+.klarna-default .button {
+    overflow:visible;
+    width:auto;
+    border:0;
+    padding:0;
+    margin:0;
+    background:transparent;
+    cursor:pointer;
+    text-decoration: none;
+}
+
+a.button,
+.klarna-default .button {
+    display:block;
+    height:19px;
+    border:1px solid #de5400;
+    background:#a15747;
+    padding:0 8px;
+    font:bold 12px/19px Arial, Helvetica, sans-serif;
+    text-align:center;
+    white-space:nowrap;
+    color:#fff;
+}
+
+a.disabled,
+.klarna-default .button.disabled{
+    border-color:#bbb !important;
+    background:#bbb !important;
+}
+
+
+/* ===========================================================
+*  Cart table
+* =========================================================== */
+
+.klarna_cart {
+    margin-bottom: 30px;
+}
+
+.klarna_cart table {
+    width: 100%;
+    margin: 0;
+    color: #333333;
+    text-transform: uppercase;
+    border-spacing: 0;
+}
+
+.klarna_cart .item-msg {
+    font-size: 10px;
+}
+
+.klarna_cart th {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-weight: normal;
+    white-space: nowrap;
+    padding: 0 10px 5px 10px;
+}
+
+.klarna_cart td {
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.klarna_block.klarna_cart .table.data-table td {
+    padding: 10px !important;
+}
+
+
+
+.klarna_cart .even {
+    background: #f5f5f5;
+}
+
+.klarna_cart tfoot td {
+    padding: 15px 0 0 0;
+    border-bottom: 0;
+}
+
+.klarna_cart .product_name {
+    font-weight: bold;
+}
+
+.klarna_cart .price {
+    font-size: 12px;
+    font-weight: bold !important;
+}
+
+.klarna_cart .product-image img {
+    border: 1px solid #cbcbcb;
+}
+
+.klarna_cart .qty {
+    text-align: center;
+    width: 102px;
+}
+
+.klarna_cart .qty.qty-def span {
+    padding: 0 6px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.klarna_cart .qty.qty-def .subtract-item,
+.klarna_cart .qty.qty-def .add-item {
+    position: relative;
+    top: -3px;
+}
+
+.klarna_cart .qty input {
+    display: inline-block;
+    zoom: 1;
+    width: 24px;
+    height: 28px;
+    padding: 0 6px;
+    background: transparent;
+    border: 0;
+    font-size: 18px;
+    border-radius: 0;
+    text-align: center;
+    position: relative;
+    bottom: 3px;
+    font-weight: bold;
+}
+
+.klarna_cart .subtract-item,
+.klarna_cart .add-item,
+.klarna-default .klarna_cart .remove-item {
+    outline: 0;
+    display: inline-block;
+    zoom: 1;
+    text-indent: -9999px;
+    width: 17px;
+    height: 19px;
+    margin: 8px 5px 0 0;
+
+}
+.klarna_cart .subtract-item{
+  background: transparent url(../../../images/minus-checkout.png)  no-repeat;
+}
+ .klarna_cart .add-item{
+    background: transparent url(../../../images/plus-checkout.png)  no-repeat;
+}
+.klarna_cart .remove-item{
+    background: transparent url(../../../images/delete-checkout.png)  no-repeat;
+}
+.klarna_cart .subtract-item:hover {
+    background-position: 0px 1px;
+}
+
+.klarna_cart .add-item {
+    margin: 8px 0 0 5px;
+}
+
+.klarna_cart .add-item:hover {
+    background-position: 0px 1px;
+}
+
+.klarna-default .klarna_cart .remove-item {
+    margin: 0;
+    background-position: 0 0;
+}
+
+.klarna-default .klarna_cart .remove-item:hover {
+    background-position: 0px 1px;
+}
+
+.cart-table .link-wishlist {
+    margin: 25px 0 0 0;
+    display: block;
+}
+
+.klarna_cart dl {
+    margin: 0;
+}
+
+.klarna_cart .item-options dl,
+.klarna_cart .item-options dt,
+.klarna_cart .item-options dd {
+    font-weight: normal;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+}
+
+.klarna_cart .item-options dd {
+    margin-left: 5px;
+}
+
+/* ===========================================================
+*  Totals
+* =========================================================== */
+.field-layout .cui__field{
+  display: none !important;
+}
+.klarna_totals {
+    padding: 0;
+    float:right;
+}
+
+.klarna_totals table {
+    width: 100%;
+    border-spacing: 0;
+    text-transform: uppercase;
+    margin-top: 30px;
+}
+
+.klarna_totals td {
+    padding: 5px 15px;
+}
+
+.klarna_totals .price {
+    font-size: 12px;
+}
+
+.klarna_totals .a-left {
+    text-align: right;
+}
+
+.klarna_totals .a-right {
+    text-align: left !important;
+}
+
+.klarna_totals th.a-right {
+    vertical-align: middle;
+}
+
+.klarna_totals th.a-right ~ td .price {
+    vertical-align: middle;
+}
+
+.klarna_totals .checkout-types {
+    display: none;
+}
+
+.klarna_totals .grand-total-incl {
+    border: none;
+    font-size: 12px;
+}
+
+tr.grand-total:last-child td strong {
+    font-weight: bold !important;
+}
+
+.klarna_totals .grand-total-incl td {
+    border-bottom: none;
+    text-align: left !important;
+}
+
+.klarna_totals .grand-total-incl .price {
+    font-size: 12px;
+}
+.grand-total td strong,.klarna_grand-total tr td div,.klarna_grand-total tr td span {
+  font-weight: 100;
+}
+.klarna_grand-total tr:last-child td strong span,.klarna_grand-total tr:last-child td strong{
+  font-weight: bold !important;
+}
+/* ===========================================================
+*  Shipping options
+* =========================================================== */
+
+.klarna_shipping {
+    width: 100%;
+}
+
+.klarna_shipping ul {
+}
+
+.klarna_shipping li {
+    display: inline-block;
+    zoom: 1;
+    padding: 0;
+}
+
+.klarna_shipping input {
+    margin-right: 5px;
+}
+
+.klarna_shipping label {
+    margin: 0;
+    font-weight: normal;
+}
+
+.klarna_shipping .price {
+    font-size: inherit;
+    font-weight: bold;
+}
+
+/* ===========================================================
+*  Discount
+* =========================================================== */
+
+.klarna_shipping h3,
+.klarna_discount h3,
+h3.klarna_block-title.page-title.title-checkout.col-xs-2 {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.klarna_discount label {
+  font-size: 14px;
+    text-transform: none;
+    font-weight: bold;
+}
+.line-checkout{
+  height: 5px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  width: 40% !important;
+  margin-top: 10px;
+}
+h2.title-checkout{
+  text-align: center;
+  width: 20%;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.klarna_discount .button {
+    letter-spacing: 0.8px;
+    width: 160px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 20px;
+    float: right;
+    border-color: #616161;
+}
+
+.klarna_discount .button {
+    height: 28px;
+    line-height: 2px;
+}
+.col-main div > a{
+  padding: 10px;
+  background-color: #ddd;
+  color:#111;
+  font-weight: bold;
+}
+#payment_partial .sp-methods {
+    display: none;
+}
+#klarna_default{
+  margin-top: 30px;
+}
+.col-main div > a.active{
+    background: #111;
+    color: #eee;
+}
+.col-main div > a:hover{
+  opacity: 0.7;
+}
+.klarna_discount input {
+  outline: 0;
+  background: #ffffff;
+  width: 300px;
+  height: 40px;
+  padding: 0 5px;
+  border: 1px solid #616161;
+  border-radius: 20px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .12);
+}
+
+.klarna_discount .error {
+    border-color: #ff5e5e;
+    box-shadow: inset 0 0 0 1px rgba(255, 26, 26, .12);
+}
+
+.klarna_checkout iframe {
+    display: block;
+}
+
+/* ===========================================================
+*  Newsletter
+* =========================================================== */
+
+.klarna-checkout-newsletter-container label {
+    font-size: 11px;
+}
+
+.klarna-checkout-newsletter-container h3 {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.klarna-checkout-newsletter {
+    margin-right: 5px;
+}
+
+/* ===========================================================
+*  Reward
+* =========================================================== */
+
+.klarna-checkout-reward-container {
+    width: 280px;
+}
+
+.klarna-checkout-reward-container label {
+    font-size: 11px;
+}
+
+.klarna-checkout-reward-container h3 {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.use-reward-points {
+    margin-right: 5px;
+}
+
+/* ===========================================================
+*  Other payment methods
+* =========================================================== */
+.klarna_methods .button {
+    display: block;
+}

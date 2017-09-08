@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <bar_shipping translate="label" module="shippingcustom">
+            <label>Shipping Customer Group</label>
+            <sort_order>0</sort_order>
+        </bar_shipping>
+    </tabs>
+    <sections>
+        <customer_group translate="label" module="shippingcustom">
+            <label>Shipping</label>
+            <tab>bar_shipping</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>0</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <setings_cs translate="label">
+                    <label>Setting</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Active</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                    </fields>
+                </setings_cs>
+            </groups>
+            <groups>
+                <setings_cs_b2c translate="label">
+                    <label>Setting B2C</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <group_id_b2c translate="label">
+                            <label>Customer group B2c</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_customer_group</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group_id_b2c>
+
+                        <price_shipping_denmark translate="label">
+                            <label>Price Shipping Denmark</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_denmark>
+                        <price_shipping_finland translate="label">
+                            <label>Price Shipping Finland</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_finland>
+                        <price_shipping_swedinsh translate="label">
+                            <label>Price Shipping Swedish</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_swedinsh>
+                        <islogin translate="label">
+                            <label>Is customer not login in</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </islogin>
+                    </fields>
+                </setings_cs_b2c>
+            </groups>
+            <groups>
+                <setings_cs_b2b translate="label">
+                    <label>Setting B2B</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                        <group_id_b2b translate="label">
+                            <label>Customer group B2B</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_customer_group</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group_id_b2b>
+
+                        <price_shipping_denmark translate="label">
+                            <label>Price Shipping Denmark</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_denmark>
+                        <price_shipping_finland translate="label">
+                            <label>Price Shipping Finland</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_finland>
+                        <price_shipping_swedinsh translate="label">
+                            <label>Price Shipping Swedish</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_swedinsh>
+
+                        <islogin translate="label">
+                            <label>Is customer not login in</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </islogin>
+                    </fields>
+                </setings_cs_b2b>
+            </groups>
+            <groups>
+                <setings_cs_b2g translate="label">
+                    <label>Setting B2G</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <group_id_b2g translate="label">
+                            <label>Customer group B2G</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_customer_group</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </group_id_b2g>
+                        <price_shipping_denmark translate="label">
+                            <label>Price Shipping Denmark</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_denmark>
+                        <price_shipping_finland translate="label">
+                            <label>Price Shipping Finland</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_finland>
+                        <price_shipping_swedinsh translate="label">
+                            <label>Price Shipping Swedish</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_shipping_swedinsh>
+
+                        <islogin translate="label">
+                            <label>Is customer not login in</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </islogin>
+                    </fields>
+                </setings_cs_b2g>
+            </groups>
+        </customer_group>
+    </sections>
+</config>

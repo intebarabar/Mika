@@ -1,0 +1,9 @@
+---
+- include: database.yml
+- include: frontend.yml
+- include: backend.yml
+#- include: xdebug.yml
+- include: magentotools.yml
+- include: redis.yml
+- include: app.yml
+- include: mailcatcher.yml

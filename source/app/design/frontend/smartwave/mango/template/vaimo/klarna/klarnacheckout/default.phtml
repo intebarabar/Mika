@@ -1,0 +1,25 @@
+<div class="klarna-default clearfix" id="klarna_default">
+  <?php if (!Mage::helper('customer')->isLoggedIn()) : ?>
+      <p><?php echo $this->__("Already registered? Please");?>
+          <a class="login_link" href="javascript:void(0);" id="loginFrmDlgO"> <?php echo $this->__("log in");?> </a></p>
+  <?php endif; ?>
+  <div class="col-xs-5 line-checkout"></div>
+  <?php if ($pageTitle = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/pagetitle')):?>
+  <h2 class="page-title title-checkout col-xs-2"><?php echo $pageTitle;?></h2>
+  <?php endif;?>
+  <div class="col-xs-5 line-checkout"></div>
+  <?php if ($pageDescription = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/pagedescription')):?>
+      <p class="page-description"><?php echo $pageDescription;?></p>
+  <?php endif;?>
+    <div class="klarna_left col-xs-12">
+        <?php echo $this->getChildHtml('checkout.cart'); ?>
+        <?php echo $this->getChildHtml('totals'); ?>
+        <?php echo $this->getChildHtml('discount'); ?>
+        <?php echo $this->getChildHtml('shipping_method'); ?>
+        <?php echo $this->getChildHtml('checkout.onepage.newsletter_checkout'); ?>
+        <?php echo $this->getChildHtml('klarnacheckout.reward'); ?>
+        <?php echo $this->getChildHtml('klarnacheckout.customer_balance'); ?>
+        <?php echo $this->getChildHtml('checkout.newsletter'); ?>
+        <?php echo $this->getChildHtml('other.payment.methods'); ?>
+    </div>
+</div>

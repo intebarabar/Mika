@@ -1,0 +1,12 @@
+<?php $cat = $this->getCategoriesList();
+if($cat->getSize()>0):?>
+<div class="col-xs-12 lpad0 customCmsBar">
+    <ul>
+        <?php
+        foreach ($cat as $item):?>
+            <li><a href="<?php echo $item->getUrl()?>" title="<?php echo $item->getName()?>"><?php echo $item->getName()?></a> </li>
+        <?php endforeach;?>
+    </ul>
+</div>
+<?php endif;
+

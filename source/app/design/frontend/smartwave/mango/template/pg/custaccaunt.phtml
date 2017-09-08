@@ -1,0 +1,6 @@
+<?php
+if(!Mage::getSingleton('customer/session')->isLoggedIn()){
+   echo ' <li><a href="'.Mage::getBaseUrl().'customer/account/login/">'.$this->__("Log In").'</a> </li>';
+}else{
+    echo ' <li><a href="'.Mage::getBaseUrl().'customer/account/">'.$this->__("My account").'</a> </li>';
+}

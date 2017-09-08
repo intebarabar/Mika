@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Bar_Klobserver>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </Bar_Klobserver>
+  </modules>
+</config>

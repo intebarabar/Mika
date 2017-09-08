@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FreeLunchLabs_SendGrid>
+            <active>true</active>
+            <codePool>community</codePool>
+        </FreeLunchLabs_SendGrid>
+    </modules>
+</config>

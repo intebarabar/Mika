@@ -1,0 +1,12 @@
+
+<?php $_invoice = $this->getInvoice() ?>
+<?php //$_order = $this->getOrder() ?>
+<?php if ($_invoice): ?>
+    <?php
+    $Date1 = $_invoice->getCreatedAt();
+    $date = new DateTime($Date1);
+    $date->add(new DateInterval('P10D')); // P1D means a period of 1 day
+    $Date2 = $date->format('Y-m-d');
+    echo "<span>".$Date2."</span><br>";
+    ?>
+<?php endif; ?>

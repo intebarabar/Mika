@@ -1,0 +1,14 @@
+source/var
+source/media
+source/app/etc/local.xml
+source/.htaccess
+#source/index.php
+source/.idea/*
+source/.modman/*
+source/info.php
+.idea
+.vagrant
+ansible/*.retry
+extras
+*.log
+source/tmp/*

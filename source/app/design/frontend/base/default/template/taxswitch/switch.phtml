@@ -1,0 +1,9 @@
+<div>
+	<form method="get">
+		<select name="tax_display" onchange="this.form.submit()">
+			<?php foreach ($this->getOptions() as $option): ?>
+				<option value="<?php echo $option->getValue() ?>" <?php if ($option->getChecked()):?> selected="checked" <?php endif; ?>><?php echo $option->getLabel() ?></option>
+			<?php endforeach ?>
+		</select>
+	</form>
+</div>

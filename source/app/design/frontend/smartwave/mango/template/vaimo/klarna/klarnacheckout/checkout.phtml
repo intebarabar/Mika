@@ -1,0 +1,147 @@
+
+<div id="mobile-one-steps" class="col-xs-12">
+    <button><span><?php echo $this->__('Next step'); ?></span></button>
+</div>
+<div class="twelve columns klarna-p">
+    <fieldset id="hiden-close">
+        <form class="my-form" name="myForm" id="myForm">
+            <ul class="form-list">
+                <li class="col-xs-12 col-sm-8">
+                    <label for="shipping:street1" class="required"><em>*</em><?php echo $this->__('Address') ?></label>
+
+                    <div class="input-box">
+                        <input type="text" title="<?php echo $this->__('Street Address') ?>" name="street"
+                               id="shipping:street1"
+                               value=""
+                               class="input-text required-entry"
+                            />
+                    </div>
+                </li>
+                <li class="col-xs-12 col-sm-4">
+
+                    <label for="shipping:city" class="required"><em>*</em><?php echo $this->__('Ort') ?></label>
+
+                    <div class="input-box">
+                        <input type="text" title="<?php echo $this->__('Ort') ?>" name="city"
+                               value=""
+                               class="input-text required-entry"
+                            />
+                    </div>
+
+                </li>
+
+                <li class="col-xs-12 col-sm-4">
+
+                    <label for="billing:ssn" class="required"><em>*</em><?php echo $this->__('Country') ?></label>
+
+                    <div class="input-box">
+                        <select name="billing[country_id]" id="billing:country_id"
+                                class="validate-select change_location_field valid" title="Land">
+                            <option value=""></option>
+                            <option value="SE" selected="selected">Sverige</option>
+                            <option value="DK">Danmark</option>
+                            <option value="FI">Finland</option>
+                        </select>
+                    </div>
+
+                </li>
+                <li class="col-xs-12" id="buttom-none">
+                    <button class="button" name="submit"><?php echo $this->__('Contain'); ?> </button>
+                </li>
+
+                <div id="mobile-two-steps" class="col-xs-12">
+                    <button><span><?php echo $this->__('Next step'); ?></span></button>
+                </div>
+            </ul>
+        </form>
+    </fieldset>
+    <script>
+        var formId = 'myForm';
+        var myForm = new VarienForm(formId, true);
+        var postUrl = '<?php echo $this->getUrl("checoutklarna/index/index") ?>';
+        function doAjax() {
+            if (myForm.validator.validate()) {
+                new Ajax.Updater(
+                    {success: 'formSuccess'}, postUrl, {
+                        method: 'post',
+                        asynchronous: true,
+                        evalScripts: false,
+                        onComplete: function (request, json) {
+                            Element.hide(formId);
+                            Element.show('formSuccess');
+                        },
+                        onLoading: function (request, json) {
+                            Element.show('formLoader');
+                        },
+                        parameters: $(formId).serialize(true),
+                    }
+                );
+                jQuery('#discount-mobile').css('display', 'none');
+                jQuery('#mobile-sh-method').css('display', 'none');
+                jQuery('.twelve.columns.klarna-p').css('display', 'none');
+                jQuery('#klarna_checkout').css('display', 'block');
+                jQuery('.span-two').addClass('active');
+                jQuery('.hr-two').addClass('active');
+            }
+        }
+
+        new Event.observe(formId, 'submit', function (e) {
+            e.stop();
+            doAjax();
+        });
+    </script>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('#mobile-one-steps').click(function () {
+                jQuery('#klarna_totals').css('display', 'none');
+                jQuery('#klarna_discount').css('display', 'none');
+                jQuery('#klarna_cart-container').css('display', 'none');
+
+                jQuery('#discount-mobile').css('display', 'none');
+                jQuery('#mobile-sh-method').css('display', 'none');
+                jQuery('#mobile-one-steps').css('display', 'none');
+                jQuery('.twelve.columns.klarna-p').css('display', 'block');
+                jQuery('#myForm').css('display', 'block');
+
+                jQuery('.span-one').addClass('active');
+                jQuery('.hr-one').addClass('active');
+            });
+
+
+            jQuery('.span-one').click(function () {
+                if(jQuery('.span-one').hasClass('active')) {
+                    jQuery('#klarna_totals').css('display', 'block');
+                    jQuery('#klarna_discount').css('display', 'block');
+                    jQuery('#klarna_cart-container').css('display', 'block');
+
+                    jQuery('#discount-mobile').css('display', 'block');
+                    jQuery('#mobile-sh-method').css('display', 'block');
+                    jQuery('#mobile-one-steps').css('display', 'block');
+                    jQuery('.twelve.columns.klarna-p').css('display', 'none');
+                    jQuery('#klarna_checkout').css('display', 'none');
+
+                    jQuery('.span-one').removeClass('active');
+                    jQuery('.hr-one').removeClass('active');
+                    jQuery('.span-two').removeClass('active');
+                    jQuery('.hr-two').removeClass('active');
+                }
+            });
+
+
+            jQuery('.span-two').click(function () {
+                if(jQuery('.span-two').hasClass('active')) {
+                    jQuery('#klarna_default').css('display', 'block');
+                    jQuery('.twelve.columns.klarna-p').css('display', 'block');
+                    jQuery('#myForm').css('display', 'block');
+                    jQuery('#klarna_checkout').css('display', 'none');
+                    jQuery('.span-two').removeClass('active');
+                    jQuery('.hr-two').removeClass('active');
+                }
+            });
+        });
+
+    </script>
+</div>
+<div id="klarna_checkout" class="klarna_checkout" style="display: none">
+    <?php echo $this->getChildHtml('checkout'); ?>
+</div>

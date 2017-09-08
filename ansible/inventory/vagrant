@@ -1,0 +1,13 @@
+[frontend]
+bargrossisten.local  ansible_user=ubuntu   ansible_port=22
+
+[database]
+bargrossisten.local  ansible_user=ubuntu   ansible_port=22
+
+[backend]
+bargrossisten.local  ansible_user=ubuntu   ansible_port=22
+
+[vagrant:children]
+database
+frontend
+backend

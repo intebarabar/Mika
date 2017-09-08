@@ -1,0 +1,16 @@
+<div class="col-xs-12 col-sm-6" id="discount-mobile">
+  <div class="col-xs-5 line-checkout"></div>
+  <h3 class="klarna_block-title page-title title-checkout col-xs-2"><?php echo $this->__('Newsletter') ?></h3>
+  <div class="col-xs-5 line-checkout"></div>
+  <div class="newsletter-block">
+    <label for="news-checkox" class="label-newsletter active"><?php echo $this->__('Subscribe to newsletter') ?></label>
+    <input type="checkbox" id="news-checkox" name="newsletter-chekbox" class="checkbox-newsletter">
+  </div>
+</div>
+<script>
+jQuery(document).ready(function(){
+  jQuery(".label-newsletter").click(function(){
+    jQuery(this).toggleClass("active");
+});
+});
+</script>

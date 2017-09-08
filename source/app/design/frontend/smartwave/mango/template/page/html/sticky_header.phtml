@@ -1,0 +1,49 @@
+<?php
+$store = Mage::app()->getStore();
+$code  = $store->getCode();
+?>
+<script type="text/javascript">
+	jQuery(function($){
+		var scrolled = false;
+		$(window).scroll(function(){
+			if(450<$(window).scrollTop() && !scrolled){
+				$('.header-container').addClass("sticky-header");
+                <?php if(Mage::getStoreConfig('mango_settings/header/sticky_header_logo', $code)): ?>
+                    var logo_image = $('<div>').append($('.header-container .header .logo').clone()).html();
+                    <?php if ((Mage::getStoreConfig('mango_settings/header/type',$code) == 2) || (Mage::getStoreConfig('mango_settings/header/type',$code) == 3) || (Mage::getStoreConfig('mango_settings/header/type',$code) == 6) || (Mage::getStoreConfig('mango_settings/header/type',$code) == 7) || (Mage::getStoreConfig('mango_settings/header/type',$code) == 12)):?>
+                        $('.header-container .main-nav').prepend('<div class="sticky-logo">'+logo_image+'</div>');
+                    <?php elseif (Mage::getStoreConfig('mango_settings/header/type',$code) == 4): ?>
+                        $('.header-container .header-bottom-wrapper .menu-wrapper').before('<div class="sticky-logo">'+logo_image+'</div>');
+                    <?php endif; ?>
+                    <?php if(Mage::getStoreConfig('mango_settings/header/sticky_header_logo_img', $code)):?>
+                    $(".sticky-logo img").attr("src","<?php echo $this->getSkinUrl(Mage::getStoreConfig('mango_settings/header/sticky_header_logo_img', $code)); ?>");
+                    <?php endif; ?>
+                <?php endif; ?>
+				$('.header-container .header-wrapper > div').each(function(){
+					if($(this).hasClass("container")){
+						$(this).addClass("already");
+					} else {
+						$(this).addClass("container");
+					}
+				});
+				scrolled = true;
+			}
+			if(450>=$(window).scrollTop() && scrolled){
+				$('.header-container').removeClass("sticky-header");
+                <?php if(Mage::getStoreConfig('mango_settings/header/sticky_header_logo', $code)): ?>
+                    <?php if ((Mage::getStoreConfig('mango_settings/header/type',$code) != 1) && (Mage::getStoreConfig('mango_settings/header/type',$code) != 5)):?>
+                    $('.header-container .sticky-logo').remove();
+                    <?php endif; ?>
+                <?php endif; ?>
+				scrolled = false;
+				$('.header-container .header-wrapper > div').each(function(){
+					if($(this).hasClass("already")){
+						$(this).removeClass("already");
+					} else {
+						$(this).removeClass("container");
+					}
+				});
+			}
+		});
+	});
+</script>

@@ -1,0 +1,77 @@
+<!--@subject Email - Footer @-->
+                    <!-- End Content -->
+                    </td>
+                </tr>
+            </table>
+            <table class="container-table" style="color:#333333 !important">
+                <tr>
+                  <td class="email-heading">
+                    <p class="closing-text">Om ni önskar ändra er order vänligen kontakta oss på:</p>
+                    <p class="closing-text" style="color:#333333;"> {{depend store_email}}<a href="mailto:{{var store_email}}">{{var store_email}}</a>
+                       eeller ring oss på telefon:<a href="tel:{{var phone}}">{{var store_phone}}</a></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="top-footer">
+                    <h2 class="closing-text">Tack för eran {{var store.getFrontendName()}}!</h2>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="email-heading">
+                    <h5 class="text-facebook">Gilla oss gärna på Facebook: <a href="{{store url="https://www.facebook.com/Bargrossisten/"}}"><img class="logo-facebook" src={{skin url="images/facebook.png"}}></a></h5>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="email-heading">
+                    <h6 class="text-center">Mer om våra Köpvillkor & annan information:</h6>
+                    <h6 class="text-center-footer"><a href="{{store url=""}}">VILKOR & INFO</a></h6>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="footer-eamil col1">
+                    <p class="footer-text">Företagsuppgifter: </p>
+                    <p class="footer-text">Org.nr: 556980-2480,</p>
+                    <p class="footer-text">Moms ID: {{var order.customer_taxvat}} SE55698024001</p>
+                    <p class="footer-text"></p>
+                  </td>
+                  <td class="footer-eamil col2">
+                    <p class="footer-text">Kontor & Lageradress:</p>
+                    <p class="footer-text">Bargrossisten.se</p>
+                    <p class="footer-text">Karlsgatan 4 (via garden)</p>
+                    <p class="footer-text">722 14 Våsterås</p>
+                  </td>
+                  <td class="footer-eamil col3">
+                    <p class="footer-text">Kontakt:</p>
+                    <p class="footer-text">Epost: <a href="mailto:{{var store_email}}">{{var store_email}}</a></p>
+                    <p class="footer-text">Telefon: <a href="tel:{{var phone}}">{{var store_phone}}</a></p>
+                    <p class="footer-text">{{var store_hours}}</p>
+                  </td>
+                </tr>
+              <tr>
+                  <td class="logo">
+                      <a href="{{store url=""}}">
+                          <img class
+                              {{if logo_width}}
+                              width="{{var logo_width}}"
+                              {{else}}
+                              width="100%"
+                              {{/if}}
+
+                              {{if logo_height}}
+                              height="{{var logo_height}}"
+                              {{else}}
+                              height=""
+                              {{/if}}
+
+                              src="{{var logo_url}}"
+                              alt="{{var logo_alt}}"
+                              border="0"/>
+                      </a>
+                  </td>
+              </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- End wrapper table -->
+</body>

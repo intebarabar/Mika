@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <PG_ShippingCustom>
+      <version>0.1.0</version>
+    </PG_ShippingCustom>
+  </modules>
+  <global>
+    <helpers>
+      <shippingcustom>
+        <class>PG_ShippingCustom_Helper</class>
+      </shippingcustom>
+    </helpers>
+  </global>
+</config> 

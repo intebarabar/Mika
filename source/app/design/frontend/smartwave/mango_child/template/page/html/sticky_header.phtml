@@ -1,0 +1,67 @@
+<?php
+$store = Mage::app()->getStore();
+$code = $store->getCode();
+?>
+<script type="text/javascript">
+
+    if(jQuery(window).width() >= 767){
+        jQuery(document).ready(function () {
+            var $header = jQuery(".header-container"),
+                $clone = $header.before($header.clone().addClass("clone"));
+
+            jQuery(window).on("scroll", function () {
+                var fromTop = jQuery("body").scrollTop();
+
+                jQuery('body').toggleClass("down", (fromTop > 170)),
+                    jQuery('.topCartContent').css('display', 'none');
+            });
+
+        });
+    }else {
+        jQuery(function ($) {
+            var scrolled = false;
+            $(window).scroll(function () {
+                if (200 < $(window).scrollTop() && !scrolled) {
+                    $('.header-container').addClass("sticky-header");
+                    $('body').addClass("menu-fixed-nav");
+
+                    scrolled = true;
+                }
+                if (200 >= $(window).scrollTop() && scrolled) {
+                    $('.header-container').removeClass("sticky-header");
+                    $('body').removeClass("menu-fixed-nav");
+
+                    scrolled = false;
+                    $('.header-container .header-wrapper > div').each(function () {
+                        if ($(this).hasClass("already")) {
+                            $(this).removeClass("already");
+                        } else {
+                            $(this).removeClass("container");
+                        }
+                    });
+                }
+            });
+        });
+    }
+</script><!-- For fixed header smooth scroll fix. --><!-- Top js commented for this update. -->
+<style>
+    .header-container {
+        position: relative;
+        width: 100%;
+        height: 118px;
+    }
+
+    .header-container.clone {
+        position: fixed;
+        top: -250px;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        transition: 0.2s top cubic-bezier(.3, .73, .3, .74);
+    }
+
+    body.down .header-container.clone {
+        top: 0;
+    }
+</style>
+

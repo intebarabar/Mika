@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<adminhtml>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <evolution_custom_option>
+                                        <title>Evolution Custom</title>
+                                    </evolution_custom_option>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</adminhtml>

@@ -1,0 +1,250 @@
+<?php echo $this->getChildHtml("jsconfig"); ?>
+<script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
+<script type="text/javascript"
+        src="<?php echo $this->getSkinUrl('lotusbreath/onestepcheckout/js/override_mage.js') ?>"></script>
+
+<?php
+$isAllowComment = Mage::getStoreConfig('lotusbreath_onestepcheckout/general/allowcomment');
+?>
+<script id="loader-template" type="text/x-handlebars-template">
+    <div class="osc-loader" id="osc-loader">
+        <div class="osc-loader-background"></div>
+        <div class="loading-mask" data-role="loader">
+            <div class="loader">
+                <img alt="{{imgAlt}}" src="{{icon}}">
+
+                <p>{{loaderText}}</p>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+    var loaderJson = {
+        imgAlt: '<?php echo $this->__("Please wait...");?>',
+        icon: '<?php echo $this->getSkinUrl('lotusbreath/onestepcheckout/images/ajax-loader_3.gif');?>',
+        loaderText: '<?php echo $this->__("Please wait...");?>'
+    };
+</script>
+
+<div class="lt-checkoutpage layout-2col " id="checkoutSteps">
+    <div class="col-xs-12 steps-one-on">
+        <div class="col-xs-5 line-checkout"></div>
+        <?php if ($pageTitle = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/pagetitle')): ?>
+            <h2 class="page-title title-checkout col-xs-2"><?php echo $pageTitle; ?></h2>
+        <?php endif; ?>
+        <div class="col-xs-5 line-checkout"></div>
+    </div>
+    <!--    --><?php //echo $this->getChildHtml("klarna_default");?>
+
+    <div class="col-3 discount-cart clearfix d3 mobile-one-step">
+        <?php if (Mage::getStoreConfig('lotusbreath_onestepcheckout/general/allowshowgiftmessage')): ?>
+            <?php if (!$this->getQuote()->isVirtual()): ?>
+                <?php echo $this->helper('giftmessage/message')->getInline('onepage_checkout', $this->getQuote(), $this->getDontDisplayContainer()) ?>
+            <?php endif; ?>
+        <?php endif; ?>
+
+
+        <h3 class="ptitle">
+            <?php if ($reviewOrderHeader = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/review_header')): ?>
+                <?php echo $reviewOrderHeader; ?>
+            <?php else: ?>
+                4. <?php echo $this->__("Review Order"); ?>
+            <?php endif; ?>
+
+        </h3>
+
+        <div id="review_partial">
+            <?php echo $this->getData("reviewHtml"); ?>
+            <?php echo $this->getChildHtml('review'); ?>
+        </div>
+
+        <?php if (Mage::getStoreConfig('lotusbreath_onestepcheckout/general/allowshowcoupon')): ?>
+            <div id="coupon_patial">
+                <h3 class="ptitle"><?php echo $this->__("Discount Codes"); ?></h3>
+
+                <?php echo $this->getChildHtml('coupon'); ?>
+            </div>
+        <?php endif; ?>
+
+        <div id="mobile-one-steps" class="col-xs-12">
+            <button><span><?php echo $this->__('Nex step') ?></span></button>
+        </div>
+
+    </div>
+    <div class="clearfix d3-additional mobile-two-step">
+        <div class="col-xs-12 col-sm-6">
+            <form class="klarna_block klarna_shipping"
+                  action="<?php echo $this->getUrl('checkout/klarna/saveShippingMethod') ?>">
+                <div class="col-xs-5 line-checkout"></div>
+                <h3 class="klarna_block-title page-title title-checkout col-xs-2"><?php echo $this->__('Choose shipping method') ?></h3>
+
+                <div class="col-xs-5 line-checkout"></div>
+                <div class="shipping-block">
+
+                </div>
+            </form>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-5 line-checkout"></div>
+            <h3 class="klarna_block-title page-title title-checkout col-xs-2"><?php echo $this->__('Newsletter') ?></h3>
+
+            <div class="col-xs-5 line-checkout"></div>
+            <div class="newsletter-block">
+                <label for="news-checkox" class="label-newsletter active">Have the checkbox checked by default</label>
+                <input type="checkbox" id="news-checkox" name="newsletter-chekbox" class="checkbox-newsletter">
+            </div>
+        </div>
+        <script>
+            jQuery(document).ready(function () {
+                jQuery(".label-newsletter").click(function () {
+                    jQuery(this).toggleClass("active");
+                });
+            });
+        </script>
+        <div id="mobile-two-steps" class="col-xs-12">
+            <button><span><?php echo $this->__('Nex step') ?></span></button>
+        </div>
+    </div>
+
+
+    <?php echo $this->getChildHtml("loginform"); ?>
+    <form id="checkout_form" name="checkout_form" class="mobile-three-step">
+        <div class="grid">
+            <!--            --><?php //if (Mage::getStoreConfig('lotusbreath_onestepcheckout/content/display_bottom_static_block')): ?>
+            <!--                --><?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('onestepcheckout_top_block')->toHtml(); ?>
+            <!--            --><?php //endif;?>
+            <div class="row  no-padding padding-mobile">
+                <div class="twelve columns">
+                    <h3 class="ptitle">
+                        <?php if ($billingHeader = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/billing_header')): ?>
+                            <?php echo $billingHeader; ?>
+                        <?php else: ?>
+                            1. <?php echo $this->__("Billing Information"); ?>
+                        <?php endif; ?>
+
+                    </h3>
+                    <?php echo $this->getChildHtml('billing'); ?>
+                    <div id="shipping-area" style="display: none;">
+                        <h3 class="ptitle">
+                            <?php if ($shippingHeader = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/shipping_address_header')): ?>
+                                <?php echo $shippingHeader; ?>
+                            <?php else: ?>
+                                <?php echo $this->__("Shipping Information"); ?>
+                            <?php endif; ?>
+
+                        </h3>
+                        <?php
+                        echo $this->getChildHtml('shipping'); ?>
+                    </div>
+                </div>
+                <div class="twelve columns shipping-block">
+                    <div class="five columns inner-shipping-block">
+                        <h3 class="ptitle">
+                            <?php if ($paymentMethodHeader = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/payment_method_header')): ?>
+                                <?php echo $paymentMethodHeader; ?>
+                            <?php else: ?>
+                                3. <?php echo $this->__("Payment Method"); ?>
+                            <?php endif; ?>
+
+                        </h3>
+
+                        <div id="payment_partial">
+                            <?php echo $this->getChildHtml('payment'); ?>
+                        </div>
+                    </div>
+
+                    <?php if (!$this->getQuote()->isVirtual()): ?>
+                        <div class="six columns inner-shipping-block">
+
+                            <h3 class="ptitle">
+                                <?php if ($shippingMethodHeader = Mage::getStoreConfig('lotusbreath_onestepcheckout/content/shipping_method_header')): ?>
+                                    <?php echo $shippingMethodHeader; ?>
+                                <?php else: ?>
+                                    2. <?php echo $this->__("Shipping Method"); ?>
+                                <?php endif; ?>
+                            </h3>
+
+                            <div id="shipping_partial">
+                                <?php echo $this->getChildHtml('shipping_method'); ?>
+                            </div>
+
+                        </div>
+                    <?php endif; ?>
+
+
+                    <div class="twelve columns block-confirm">
+                        <a href="#"><?php echo $this->__("Genom att slutföra köpet godkänner du våra villkor"); ?></a>
+                    </div>
+                    <button role='review-save' type="submit"
+                            title="<?php echo Mage::helper('checkout')->__('Place Order') ?>" name="submitbtn"
+                            id="lbonepage-place-order-btn" class="button btn-checkout klarna_discount button">
+                        <span><span><?php echo Mage::helper('checkout')->__('Place Order') ?></span></span>
+                    </button>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <!--            --><?php //if (Mage::getStoreConfig('lotusbreath_onestepcheckout/content/display_bottom_static_block')): ?>
+            <!--            --><?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('onestepcheckout_bottom_block')->toHtml(); ?>
+            <!--            --><?php //endif;?>
+        </div>
+    </form>
+</div>
+<script>
+    jQuery(document).ready(function(){
+        jQuery('#mobile-one-steps').click(function () {
+            jQuery('.mobile-one-step').css('display', 'none');
+            jQuery('.steps-one-on').css('display', 'none');
+            jQuery('.mobile-two-step').css('display', 'block');
+            jQuery('.span-one').addClass('active');
+            jQuery('.hr-one').addClass('active');
+        });
+
+        jQuery('#mobile-two-steps').click(function () {
+            jQuery('.mobile-two-step').css('display', 'none');
+            jQuery('.mobile-three-step').css('display', 'block');
+            jQuery('.span-two').addClass('active');
+            jQuery('.hr-two').addClass('active');
+        });
+
+        jQuery('.span-one').click(function () {
+            if(jQuery('.span-one').hasClass('active')) {
+                jQuery('.mobile-one-step').css('display', 'block');
+                jQuery('.steps-one-on').css('display', 'block');
+                jQuery('.mobile-two-step').css('display', 'none');
+                jQuery('.mobile-three-step').css('display', 'none');
+                jQuery('.span-one').removeClass('active');
+                jQuery('.hr-one').removeClass('active');
+                jQuery('.span-two').removeClass('active');
+                jQuery('.hr-two').removeClass('active');
+            }
+        });
+
+        jQuery('.span-two').click(function () {
+            if(jQuery('.span-two').hasClass('active')) {
+                jQuery('.mobile-two-step').css('display', 'block');
+                jQuery('.mobile-three-step').css('display', 'none');
+                jQuery('.span-two').removeClass('active');
+                jQuery('.hr-two').removeClass('active');
+            }
+        });
+    });
+
+</script>
+<script type="text/javascript">
+    //<![CDATA[
+    var accordion = new Accordion('checkoutSteps', '.step-title', true);
+    <?php if($this->getActiveStep()): ?>
+    accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
+    <?php endif ?>
+    var checkout = new Checkout(accordion, {
+            progress: '<?php echo $this->getUrl('checkout/onepage/progress') ?>',
+            review: '<?php echo $this->getUrl('checkout/onepage/review') ?>',
+            saveMethod: '<?php echo $this->getUrl('checkout/onepage/saveMethod') ?>',
+            failure: '<?php echo $this->getUrl('checkout/cart') ?>'
+        }
+    );
+    //]]>
+</script>

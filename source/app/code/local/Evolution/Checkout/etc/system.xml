@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <vaimo_klarna_checkout>
+                    <fields>
+                        <checkout_tab_name>
+                            <label>Checkout Tab Name</label>
+                            <frontend_type>text</frontend_type>
+                            <show_in_default>1</show_in_default>
+                            <show_in_store>1</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <sort_order>1000</sort_order>
+                        </checkout_tab_name>
+                    </fields>
+                </vaimo_klarna_checkout>
+            </groups>
+        </payment>
+    </sections>
+</config>

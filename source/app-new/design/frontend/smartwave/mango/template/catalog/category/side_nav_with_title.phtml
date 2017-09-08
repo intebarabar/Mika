@@ -1,0 +1,28 @@
+<div class="home-side-menu-type2">
+<h2><i class="icon-menu"></i> <?php echo $this->__("Shop by Categories"); ?></h2>
+<?php $menuHelper = Mage::helper('megamenu'); ?>
+<div class="side-block side-menu-type2">
+    <div class="menu-all-pages-container">
+        <ul class="menu">
+            <?php echo $menuHelper->getMobileMenuContent(); ?>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+jQuery(function($){
+    $(".side-menu-type2.side-block ul.menu li.menu-parent-item>a").before('<a class="open-child" href="javascript:void(0)"><i class="icon-mango-angle-down"></i></a>');
+    $(".side-menu-type2.side-block ul.menu a.open-child").click(function(){
+        if($(this).parent().hasClass("opened")){
+            $(this).parent().removeClass("opened");
+            $(this).parent().children("ul").slideUp();
+            $(this).children("i.icon-mango-angle-up").addClass("icon-mango-angle-down").removeClass("icon-mango-angle-up");
+        } else {
+            $(this).parent().addClass("opened");
+            $(this).parent().children("ul").slideDown();
+            $(this).children("i.icon-mango-angle-down").addClass("icon-mango-angle-up").removeClass("icon-mango-angle-down");
+        }
+    });
+});
+
+</script>
+</div>

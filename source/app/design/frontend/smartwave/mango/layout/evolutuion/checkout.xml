@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_klarna_index>
+        <reference name="content">
+            <block type="evolution_checkout/checkout_switcher" before="-" name="checkout_switcher"
+                   template="evolution/checkout/switcher.phtml"/>
+        </reference>
+    </checkout_klarna_index>
+    <checkout_onepage_index>
+        <reference name="content">
+            <block type="evolution_checkout/checkout_switcher" before="-" name="checkout_switcher"
+                   template="evolution/checkout/switcher.phtml"/>
+        </reference>
+    </checkout_onepage_index>
+    <checkout_index_index>
+        <reference name="content">
+            <block type="evolution_checkout/checkout_switcher" before="-" name="checkout_switcher"
+                   template="evolution/checkout/switcher.phtml"/>
+        </reference>
+    </checkout_index_index>
+    <lotusbreath_onestepcheckout_index_index>
+        <reference name="content">
+            <block type="evolution_checkout/checkout_switcher" before="-" name="checkout_switcher"
+                   as="checkout_switcher"
+                   template="evolution/checkout/switcher.phtml"/>
+        </reference>
+    </lotusbreath_onestepcheckout_index_index>
+
+</layout>
