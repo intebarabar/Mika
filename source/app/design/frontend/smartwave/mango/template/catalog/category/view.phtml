@@ -73,4 +73,5 @@
 
 <?php else: ?>
     <?php echo $this->getProductListHtml() ?>
+    <?php echo $this->getLayout()->createBlock('catalog/product_new')->setTemplate('catalog/product/new.phtml')->toHtml(); ?>
 <?php endif; ?>

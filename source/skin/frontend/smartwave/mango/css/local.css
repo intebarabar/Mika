@@ -2450,6 +2450,8 @@ div#klarna-checkout-container{
 }
 .columns3custom  ul li#cust-klarna-menu  a{
     color: transparent !important;
+    width: 100%;
+    padding: 8px 49px;
 }
 .columns3custom .rightlinks ul li{
     text-align: right;
@@ -2621,6 +2623,37 @@ a.submit{
 #review-form button.button span {
     color: #32e714;
 }
+
+li#cust-klarna-menu{
+    height: 35px
+}
+
+div.new-owl-product .product-label>span.new-product-icon {
+    background-color: #FFB90F;
+}
+
+div.new-owl-product .item-area .product-image-area .actions > a {
+    width: 40%;
+    float: left;
+}
+
+div.new-owl-product .item-area .product-image-area .actions > a.addtocart {
+    text-align: left;
+    width: 60%;
+    right: 0;
+    left: auto;
+}
+
+h2.new-title.subtitle {
+    clear: both;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+
 .category-products.sub-category > ul.products-grid > li.item.sub-item a {color:#ccc;}
 .category-products.sub-category > ul.products-grid > li.item.sub-item{height: 50px; float: left;}
 .category-products .products-grid li.item{float: none;display: inline-block;}
