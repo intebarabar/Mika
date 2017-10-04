@@ -63,7 +63,7 @@
         <div class="open_currency_active">
             <ul class="in_currency">
                 <?php foreach ($this->getCurrencies() as $_code => $_name): ?>
-                    <li style="float:left;padding:0px 5px 0px 0px;">
+                    <li class="style-cur-none">
                         <a href="<?php echo $this->getSwitchCurrencyUrl($_code) ?>" onclick="setLocation(this.value);"
                            class="fa fa-circle currency_s <?php if ($_code == $this->getCurrentCurrencyCode()): ?> currency_active <?php endif; ?> <?php echo mb_strtolower($_code); ?>"
                             >

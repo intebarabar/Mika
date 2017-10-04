@@ -32,7 +32,7 @@
             <action method="addCss"><stylesheet>icons/css/animation.css</stylesheet></action>
 
             <action method="addCss" ifconfig="mango_settings/general/rtl" condition="0"><stylesheet>icons/css/mango.css</stylesheet></action>
-            <action method="addCss" ifconfig="mango_settings/general/rtl" condition="0"><stylesheet>css/local.css</stylesheet></action>
+            <action method="addCss" ifconfig="mango_settings/general/rtl" condition="0"><stylesheet>css/local-l.css</stylesheet></action>
             <action method="addCss" ifconfig="mango_settings/general/rtl" condition="0"><stylesheet>css/responsive.css</stylesheet></action>
             <action method="addCss" ifconfig="mango_settings/general/rtl" condition="0"><stylesheet>css/custom.css</stylesheet></action>
 

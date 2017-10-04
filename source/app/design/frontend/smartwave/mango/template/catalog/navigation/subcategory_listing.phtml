@@ -28,16 +28,20 @@
       <?php if ($category->getId() == $currentCategoryId) {
         continue;
       }
+      $img = Mage::getModel('catalog/category')->load($category->getId());
+
       ?>
-      <li id="<?php echo $category->getId() ?>" class="item sub-item <?= $class ?>">
+      <li id="<?php echo $category->getId() ?>" class="item sub-item images-item <?= $class ?>">
         <a href="<?php echo $this->getBaseUrl('web'); ?><?php echo $category->getRequestPath(); ?>"
            title="<?php echo $this->htmlEscape($category->getName()) ?>"><img
-              src="<?php echo $category->getImageUrl() ?>" width="100"
+              src="<?php echo $img->getImageUrl(); ?>" 
               alt="<?php echo $this->htmlEscape($category->getName()) ?>"/></a>
 
         <h2><a href="<?php echo $this->getBaseUrl('web'); ?><?php echo $category->getRequestPath(); ?>"
                title="<?php echo $this->htmlEscape($category->getName()) ?>"><?php echo $this->htmlEscape($category->getName()) ?></a>
         </h2>
+
+
       </li>
     <?php }
     ?>

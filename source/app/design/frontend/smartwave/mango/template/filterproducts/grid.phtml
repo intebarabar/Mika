@@ -12,7 +12,7 @@
     }
 ?>
 <div class="filter-products">
-<?php if(!$_productCollection->count()): ?>
+<?php if(!$_productCollection->getSize()): ?>
     <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
 <?php else: ?>
     <?php
@@ -26,7 +26,7 @@
             //]]>
         </script>
     <?php endif; ?>
-    <?php $_collectionSize = $_productCollection->count() ?>
+    <?php $_collectionSize = $_productCollection->getSize() ?>
     <?php
         $_columnCount = $this->getColumnCount();
         if(!$_columnCount)
@@ -47,7 +47,7 @@
                                 <a href="<?php if(Mage::getStoreConfig("ajaxcart/addtocart/enablecategory", $code)):?>javascript:setLocationAjax('<?php echo $this->getAddToCartUrl($_product) ?>')<?php else: ?><?php echo $this->getAddToCartUrl($_product) ?><?php endif; ?>" class="addtocart" title="<?php echo $this->__('Add to Cart') ?>"><i class="icon-mango-cart"></i><span>&nbsp;<?php echo $this->__('Add to Cart') ?></span></a>
                             <?php else : ?>
                                 <a href="<?php if(Mage::getStoreConfig("ajaxcart/addtocart/enablecategory", $code)):?>javascript:showOptions('<?php echo $_product->getId()?>')<?php else: ?><?php echo $this->getAddToCartUrl($_product) ?><?php endif; ?>" class="addtocart" title="<?php echo $this->__('Add to Cart') ?>"><i class="icon-mango-cart"></i><span><?php echo $this->__('Add to Cart') ?></span></a>
-                                <a href='<?php echo $this->getUrl('ajaxcart/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Options</a>
+                                <a href='<?php echo $this->getUrl('ajaxcart/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox none-fancybox' id='fancybox<?php echo $_product->getId()?>'>Options</a>
                             <?php endif;?>
                         <?php endif; ?>
                         <?php if ($this->helper('wishlist')->isAllow()) : ?>
@@ -163,7 +163,7 @@
                                 if(Mage::getStoreConfig("mango_settings/product_label/sale", $code)){
                                     $sale_label = true;
                                     ?>
-                                    <div class="product-label" style="left: 7px;"><span class="sale-product-icon"><?php if(Mage::getStoreConfig("mango_settings/product_label/sale_label_type", $code)):?><?php echo "-".$save_percent."%"; ?><?php else: ?><?php echo Mage::getStoreConfig("mango_settings/product_label/sale_label_text", $code);?><?php endif;?></span></div>
+                                    <div class="product-label n-style-l"><span class="sale-product-icon"><?php if(Mage::getStoreConfig("mango_settings/product_label/sale_label_type", $code)):?><?php echo "-".$save_percent."%"; ?><?php else: ?><?php echo Mage::getStoreConfig("mango_settings/product_label/sale_label_text", $code);?><?php endif;?></span></div>
                     <?php       
                                 }
                             }
@@ -178,7 +178,7 @@
                             {
                                 if(Mage::getStoreConfig("mango_settings/product_label/new", $code)){
                         ?> 
-                                <div class="product-label" style="right: 7px;"><span class="new-product-icon"><?php echo Mage::getStoreConfig("mango_settings/product_label/new_label_text", $code);?></span></div>
+                                <div class="product-label n-style-r"><span class="new-product-icon"><?php echo Mage::getStoreConfig("mango_settings/product_label/new_label_text", $code);?></span></div>
                         <?php 
                                 }
                             }
@@ -200,7 +200,7 @@
                     ?>
                         <div class="ratings">
                             <div class="rating-box">
-                                <div class="rating" style="width:0"></div>
+                                <div class="rating none-style-width"></div>
                             </div>
                         </div>
                     <?php                            
@@ -209,7 +209,7 @@
                     <?php else: ?>
                         <div class="ratings">
                             <div class="rating-box">
-                                <div class="rating" style="width:0"></div>
+                                <div class="rating none-style-width"></div>
                             </div>
                         </div>
                     <?php 
