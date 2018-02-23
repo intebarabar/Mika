@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Bar_OrderStatus>
+            <version>0.1.0</version>
+        </Bar_OrderStatus>
+    </modules>
+
+    <global>
+        <helpers>
+            <orderstatus>
+                <class>Bar_OrderStatus_Helper</class>
+            </orderstatus>
+        </helpers>
+
+        <models>
+            <orderstatus>
+                <class>Bar_OrderStatus_Model</class>
+            </orderstatus>
+        </models>
+
+        <events>
+            <sales_order_save_after>
+                <observers>
+                    <changes_status_order_bar>
+                        <type>singleton</type>
+                        <class>orderstatus/observer</class>
+                        <method>_changesStatusOrder</method>
+                        <!--<args></args>-->
+                    </changes_status_order_bar>
+                </observers>
+            </sales_order_save_after>
+        </events>
+
+        <template>
+            <email>
+                <sale_order_email_changes_status_bar module="Bar_OrderStatus">
+                    <label>Status Order</label>
+                    <file>status_one.html</file>
+                    <type>html</type>
+                </sale_order_email_changes_status_bar>
+                <sale_order_email_changes_status_bar_two>
+                    <label>Status Order Two</label>
+                    <file>status_two.html</file>
+                    <type>html</type>
+                </sale_order_email_changes_status_bar_two>
+                <sale_order_email_changes_status_bar_three>
+                    <lable>Status Order Three</lable>
+                    <file>status_three.html</file>
+                    <type>html</type>
+                </sale_order_email_changes_status_bar_three>
+            </email>
+        </template>
+
+    </global>
+</config>

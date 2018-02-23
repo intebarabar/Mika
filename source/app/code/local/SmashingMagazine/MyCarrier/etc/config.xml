@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <SmashingMagazine_MyCarrier>
+            <module>0.0.1</module>
+        </SmashingMagazine_MyCarrier>
+    </modules>
+    <global>
+        <models>
+            <smashingmagazine_mycarrier>
+                <class>SmashingMagazine_MyCarrier_Model</class>
+            </smashingmagazine_mycarrier>
+        </models>
+    </global>
+    <!-- Default configuration -->
+    <default>
+        <carriers>
+            <smashingmagazine_mycarrier>
+                <active>1</active>
+                <model>smashingmagazine_mycarrier/carrier</model>
+                <title>Smashing Magazine Carrier</title>
+                <sort_order>10</sort_order>
+                <sallowspecific>0</sallowspecific>
+            </smashingmagazine_mycarrier>
+
+            <privatkunds_fract>
+                <active>1</active>
+                <model>smashingmagazine_mycarrier/fract</model>
+                <title>Smashing Magazine Carrier</title>
+                <sort_order>20</sort_order>
+                <sallowspecific>0</sallowspecific>
+            </privatkunds_fract>
+        </carriers>
+    </default>
+</config>

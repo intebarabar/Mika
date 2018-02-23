@@ -84,7 +84,7 @@ class Webtex_CustomerPrices_Helper_Data extends Mage_Core_Helper_Abstract {
 
         $categoryCollection = $product->getCategoryCollection()->getData();
 
-        $_category = Mage::getModel('catalog/category')->load($categoryCollection[0]['entity_id']);
+        //$_category = Mage::getModel('catalog/category')->load($categoryCollection[0]['entity_id']);
 
         $this->_categoryHide = $this->isHideCategoryPrice($product->getCategory());
         

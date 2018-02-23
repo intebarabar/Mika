@@ -25,7 +25,8 @@ class Evolution_Checkout_Block_Checkout_Switcher extends Mage_Core_Block_Templat
                 );
             } else {
                 $result[$store->getId()] = array(
-                    'url' => $store->getUrl('onestepcheckout/'),
+//                    'url' => $store->getUrl('onestepcheckout/'),
+                    'url' => $store->getUrl('checkout/onepage/'),
                     'name' => $name
                 );
             }

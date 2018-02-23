@@ -7,7 +7,8 @@ $children = Mage::getModel('catalog/category')->getCollection()->setStoreId($sto
 $current_category = Mage::registry('current_category')->getName();
 ?>
 <?php
-    function getChildrenCategoriesHtmlContent($_category, $current_category){
+    function getChildrenCategoriesHtmlContent($_category){
+        $current_category = Mage::registry('current_category')->getName();
         $children = explode( ",", $_category->getChildren() );
         $content = '';
         $content .= '<li class="';

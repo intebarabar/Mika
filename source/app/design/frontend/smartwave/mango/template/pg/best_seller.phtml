@@ -6,6 +6,7 @@ $products = Mage::getSingleton('catalog/category')->load($this->getData('cat_id'
     ->getProductCollection()
     ->addAttributeToSelect('*');
 $_helper = $this->helper('catalog/output');
+$effect = '';
 ?>
 <div class="filter-products">
     <?php if (!$products->getSize()): ?>

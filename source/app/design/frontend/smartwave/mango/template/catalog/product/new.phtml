@@ -26,9 +26,13 @@
 ?>
 <?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
     <?php
-
+    $store = Mage::app()->getStore();
+    $code  = $store->getCode();
     $_helper = $this->helper('catalog/output');
-
+    $effect = false;
+    $aspect_ratio = false;
+    $ratio_height = false;
+    $ratio_width = false;
     ?>
     <h2 class="new-title subtitle"><?php echo $this->__('New Products') ?></h2>
 
@@ -89,7 +93,7 @@
                             <a href="<?php echo $_product->getProductUrl() ?>"
                                title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                                class="product-image">
-                                <img src="<?php if ($aspect_ratio): ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width); ?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width, $ratio_height); ?><?php endif; ?>"
+                                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(180) ?>"
                                      alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                             </a>
                         <?php elseif ($effect == "alternative"): ?>
@@ -98,14 +102,14 @@
                                class="product-image">
                                 <?php if ($_product->getSmallImage() == $_product->getThumbnail()) { ?>
                                     <img class="defaultImage"
-                                         src="<?php if ($aspect_ratio): ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width); ?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width, $ratio_height); ?><?php endif; ?>"
+                                         src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(180) ?>"
                                          alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                                 <?php } else { ?>
                                     <img class="defaultImage"
-                                         src="<?php if ($aspect_ratio): ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width); ?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width, $ratio_height); ?><?php endif; ?>"
+                                         src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(180) ?>"
                                          alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                                     <img class="hoverImage"
-                                         src="<?php if ($aspect_ratio): ?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width); ?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail')->resize($ratio_width, $ratio_height); ?><?php endif; ?>"
+                                         src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(180) ?>"
                                          alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'thumbnail'), null, true) ?>"/>
                                 <?php } ?>
                             </a>
@@ -118,7 +122,7 @@
                                 <a href="<?php echo $_product->getProductUrl() ?>"
                                    title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                                    class="product-image">
-                                    <img src="<?php if ($aspect_ratio): ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width); ?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width, $ratio_height); ?><?php endif; ?>"
+                                    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(180) ?>"
                                          alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                                 </a>
                             <?php else: ?>
@@ -132,7 +136,7 @@
                                             <a href="<?php echo $_product->getProductUrl() ?>"
                                                title="<?php echo $this->escapeHtml($image->getLabel()) ?>"
                                                class="product-image">
-                                                <img src="<?php if ($aspect_ratio): ?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail', $image->getFile())->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width); ?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'thumbnail', $image->getFile())->resize($ratio_width, $ratio_height); ?><?php endif; ?>"
+                                                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(180) ?>"
                                                      alt="<?php echo $this->escapeHtml($image->getLabel()) ?>"/>
                                             </a>
                                         </div>

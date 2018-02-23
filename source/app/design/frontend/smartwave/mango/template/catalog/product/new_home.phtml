@@ -30,7 +30,9 @@
     $_helper = $this->helper('catalog/output');
     $ratio_width = 170;
     $ratio_height = 170;
-
+    $store = Mage::app()->getStore();
+    $code  = $store->getCode();
+    $effect = false;
     ?>
 
     <?php $_columnCount = $this->getColumnCount(); ?>
@@ -77,7 +79,7 @@
                         <?php endif; ?>
                         <?php if( !$effect ): ?>
                             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
-                                <img src="<?php if($aspect_ratio):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width,$ratio_height); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
+                                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width,$ratio_height); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
                             </a>
                         <?php elseif($effect == "alternative"): ?>
                             <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">

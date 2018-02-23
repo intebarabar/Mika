@@ -60,9 +60,16 @@ jQuery(function ($){
     $(".table_qty_inc").unbind('click').click(function(){
         if($(this).parent().hasClass('qty_increments')){
             var inct_qty = $('.qty_increments input').attr('increments');
+            var price = $('.price .price').text();
+            price = price.split(',',2);
+            var p = price[0];
             inct_qty = parseInt(inct_qty);
-            if ($(this).parent().children(".qty").is(':enabled'))
+            if ($(this).parent().children(".qty").is(':enabled')) {
                 $(this).parent().children(".qty").val((+$(this).parent().children(".qty").val() + inct_qty) || 0);
+                var vatQty = $('.qty_increments #qty').val();
+                var priceFinal = parseInt(p * vatQty);
+                $('#changes-price .price').text(priceFinal + ',00 kr');
+            }
         }else {
             if ($(this).parent().children(".qty").is(':enabled'))
                 $(this).parent().children(".qty").val((+$(this).parent().children(".qty").val() + 1) || 0);
@@ -72,8 +79,15 @@ jQuery(function ($){
         if($(this).parent().hasClass('qty_increments')){
             var inct_qty = $('.qty_increments input').attr('increments');
             inct_qty = parseInt(inct_qty);
-            if($(this).parent().children(".qty").is(':enabled'))
-                $(this).parent().children(".qty").val(($(this).parent().children(".qty").val()-inct_qty > 0)?($(this).parent().children(".qty").val() - inct_qty) : 0);
+            var price = $('.price .price').text();
+            price = price.split(',',2);
+            var p = price[0];
+            if($(this).parent().children(".qty").is(':enabled')) {
+                $(this).parent().children(".qty").val(($(this).parent().children(".qty").val() - inct_qty > 0) ? ($(this).parent().children(".qty").val() - inct_qty) : 0);
+                var vatQty = $('.qty_increments #qty').val();
+                var priceFinal = parseInt(p * vatQty);
+                $('#changes-price .price').text(priceFinal + ',00 kr');
+            }
         }else {
             if ($(this).parent().children(".qty").is(':enabled'))
                 $(this).parent().children(".qty").val(($(this).parent().children(".qty").val() - 1 > 0) ? ($(this).parent().children(".qty").val() - 1) : 0);

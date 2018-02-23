@@ -36,6 +36,7 @@
     $helper_richsnippets = $this->helper('mango/richsnippets');
     $store = Mage::app()->getStore();
     $code  = $store->getCode();
+    $store_id = Mage::app()->getStore()->getStoreId();
     $_pageType = Mage::getStoreConfig('mango_settings/product_view/page_layout', $code);
     $custom_block_id = Mage::getStoreConfig('mango_settings/product_view/static_block', $code);
     if($custom_block_id){
@@ -194,7 +195,11 @@
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php echo $this->getChildHtml('upsell_products') ?>
-                <?php echo ($custom_block)?'<div class="custom-block custom-checkout-block">'.$custom_block.'</div>':''; ?>
+                <?php
+                if($custom_block_id){
+                    echo ($custom_block)?'<div class="custom-block custom-checkout-block">'.$custom_block.'</div>':'';
+                }
+                ?>
             </div>
         </div>        
     </form>

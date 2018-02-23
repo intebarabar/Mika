@@ -19,6 +19,7 @@
     //    else{
     //    $class = "";
     //    }
+    $class = '';
     $layer = Mage::getSingleton('catalog/layer');
     $_helper = $this->helper('catalog/output');
     $_category = $layer->getCurrentCategory();
@@ -32,12 +33,12 @@
 
       ?>
       <li id="<?php echo $category->getId() ?>" class="item sub-item images-item <?= $class ?>">
-        <a href="<?php echo $this->getBaseUrl('web'); ?><?php echo $category->getRequestPath(); ?>"
+        <a href="<?php echo $img->getUrl(); ?>"
            title="<?php echo $this->htmlEscape($category->getName()) ?>"><img
               src="<?php echo $img->getImageUrl(); ?>" 
               alt="<?php echo $this->htmlEscape($category->getName()) ?>"/></a>
 
-        <h2><a href="<?php echo $this->getBaseUrl('web'); ?><?php echo $category->getRequestPath(); ?>"
+        <h2><a href="<?php echo $img->getUrl(); ?>"
                title="<?php echo $this->htmlEscape($category->getName()) ?>"><?php echo $this->htmlEscape($category->getName()) ?></a>
         </h2>
 

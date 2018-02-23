@@ -12,6 +12,21 @@ if($qty != 1 || $qty > 1){
 } ?>
 <?php $buttonTitle = $this->__('Add to Cart'); ?>
 <?php if($_product->isSaleable()): ?>
+    <?php if ($qty > 1) { ?>
+        <div id="changes-price">
+            <?php echo $this->getPriceHtml($_product) ?>
+        </div>
+        <script>
+            jQuery(document).ready(function () {
+                var price = jQuery('.price .price').text();
+                price = price.split(',',2);
+                var p = price[0];
+                var vatQty = jQuery('.qty_increments #qty').val();
+                var priceFinal = parseInt(p * vatQty);
+                jQuery('#changes-price .price').text(priceFinal + ',00 kr');
+            });
+        </script>
+    <?php } ?>
     <div class="add-to-cart">
         <?php if(!$_product->isGrouped()): ?>
         <label for="qty"><?php echo $this->__('Qty:') ?></label>

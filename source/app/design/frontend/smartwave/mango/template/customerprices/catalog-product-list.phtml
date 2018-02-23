@@ -38,6 +38,8 @@
 $_productCollection = $this->getLoadedProductCollection();
 $_helper = $this->helper('catalog/output');
 $_webtexHelper = $this->helper('customerprices');
+$store = Mage::app()->getStore();
+$code  = $store->getCode();
 $aspect_ratio = Mage::getStoreConfig("mango_settings/category/aspect_ratio", $code);
 $ratio_width = Mage::getStoreConfig("mango_settings/category/ratio_width", $code);
 $ratio_height = Mage::getStoreConfig("mango_settings/category/ratio_height", $code);
@@ -166,7 +168,7 @@ $_carogiryHidePrice = null;
                                 <a href="<?php echo $_product->getProductUrl() ?>"
                                    title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
                                    class="product-image"><img
-                                        src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(); ?>"
+                                        src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(170); ?>"
                                         alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/></a>
                                 <?php
 
